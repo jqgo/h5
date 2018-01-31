@@ -5,34 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>收货地址Frame</title>
+    <title>下单Frame</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <style>
-    html {
-        height: 100%;
-    }
-    
+    html,
     body {
-        min-height: 100%;
+        height: 100%;
         background-color: #f0f0f0;
     }
     
-    .list {
-        display: none;
-        width: 100%;
-        height: auto;
-    }
-    
-    .list .address {
+    .address {
+        position: relative;
         box-sizing: border-box;
         width: 100%;
         height: auto;
-        margin-bottom: 1px;
+        margin-bottom: 8px;
         padding: 8px 16px;
         background-color: #fff;
     }
     
-    .list .address .icon {
+    .address .icon {
         position: absolute;
         top: 21px;
         left: 16px;
@@ -44,7 +36,7 @@
         background-position: center center;
     }
     
-    .list .address .sign {
+    .address .sign {
         display: none;
         position: absolute;
         top: 45px;
@@ -57,11 +49,11 @@
         text-align: center;
     }
     
-    .list .address .sign-1 {
+    .address .sign-1 {
         display: block;
     }
     
-    .list .address .info {
+    .address .info {
         position: relative;
         box-sizing: border-box;
         padding-left: 36px;
@@ -70,7 +62,7 @@
         height: auto;
     }
     
-    .list .address .info .top {
+    .address .info .top {
         position: relative;
         box-sizing: border-box;
         width: 100%;
@@ -80,18 +72,18 @@
         font-size: 14px;
     }
     
-    .list .address .info .top .consignee {
+    .address .info .top .consignee {
         display: inline;
         width: auto;
     }
     
-    .list .address .info .top .mobile {
+    .address .info .top .mobile {
         display: inline;
         width: auto;
         margin-left: 16px;
     }
     
-    .list .address .info .bottom {
+    .address .info .bottom {
         position: relative;
         width: 100%;
         min-height: 32px;
@@ -100,19 +92,19 @@
         font-size: 14px;
     }
     
-    .list .address .info .bottom .type {
+    .address .info .bottom .type {
         display: inline;
         width: auto;
         color: #e3007f;
         font-weight: bolder;
     }
     
-    .list .address .info .bottom .text {
+    .address .info .bottom .text {
         display: inline;
         width: auto;
     }
     
-    .list .address .arrow {
+    .address .arrow {
         position: absolute;
         right: 16px;
         top: 32px;
@@ -124,16 +116,246 @@
         background-position: right center;
     }
     
-    .empty {
-        display: block;
-        position: absolute;
+    .order {
+        position: relative;
         width: 100%;
-        height: 100%;
+        height: auto;
+        margin-bottom: 16px;
+    }
+    
+    .order .title {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 40px;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        font-size: 16px;
+        text-align: left;
+        color: #444;
         background-color: #fff;
-        background-image: url(../image/address_empty.png);
+        background-image: url(../image/icon_order.png);
         background-repeat: no-repeat;
-        background-size: auto 93px;
-        background-position: center 50px;
+        background-size: auto 20px;
+        background-position: 16px center;
+    }
+    
+    .order .icon-panel {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-flex-flow: row;
+        flex-flow: row;
+        box-sizing: border-box;
+        padding: 8px 16px;
+        width: 100%;
+        height: 80px;
+        background-color: #f1f5f8;
+    }
+    
+    .order .icon-panel .icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 8px;
+        background-image: url(../image/order_ware.gif);
+        background-repeat: no-repeat;
+        background-size: 64px 64px;
+        background-position: center center;
+    }
+    
+    .order .icon-panel .info {
+        position: relative;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        box-sizing: border-box;
+        padding-left: 16px;
+    }
+    
+    .order .icon-panel .info .top {
+        position: relative;
+        box-sizing: border-box;
+        padding-bottom: 16px;
+        width: 100%;
+        height: 32px;
+        font-size: 16px;
+        color: #444;
+        text-align: left;
+    }
+    
+    .order .icon-panel .info .bottom {
+        position: relative;
+        box-sizing: border-box;
+        padding-top: 16px;
+        width: 100%;
+        height: 32px;
+        font-size: 16px;
+        color: #444;
+        text-align: left;
+    }
+    
+    .order .icon-panel .right {
+        box-sizing: border-box;
+        width: 40px;
+        height: 64px;
+        padding-top: 50px;
+        font-size: 14px;
+        text-align: right;
+    }
+    
+    .order .row {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        font-size: 16px;
+        margin-bottom: 1px;
+        background-color: #fff;
+    }
+    
+    .order .row .text {
+        position: relative;
+        width: 100%;
+        height: 44px;
+        text-align: left;
+        color: #444;
+    }
+    
+    .order .row .value {
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 16px;
+        width: 100%;
+        height: 44px;
+        text-align: right;
+        color: #444;
+    }
+    
+    .order .row .value-1 {
+        padding-right: 20px;
+        background-image: url(../image/arrow_right.png);
+        background-repeat: no-repeat;
+        background-size: 12px 20px;
+        background-position: right center;
+        color: #888;
+    }
+    
+    .order .row .value-2 {
+        color: #e3007f;
+    }
+    
+    .order .row-1 {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        text-align: right;
+        font-size: 16px;
+        background-color: #fff;
+    }
+    
+    .color {
+        color: #e3007f;
+    }
+    
+    .pay {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    
+    .pay .title {
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 40px;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        font-size: 16px;
+        text-align: left;
+        color: #444;
+        background-color: #fff;
+        background-image: url(../image/order_pay.png);
+        background-repeat: no-repeat;
+        background-size: auto 16px;
+        background-position: 12px center;
+    }
+    
+    .pay .row {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 1px;
+        padding-left: 96px;
+        text-align: left;
+        font-size: 16px;
+        color: #444;
+        line-height: 50px;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: auto 36px;
+        background-position: 12px center;
+    }
+    
+    .pay .row-balance-pay {
+        background-image: url(../image/icon_balance_pay.png);
+    }
+    
+    .pay .row-wxpay {
+        background-image: url(../image/icon_wxpay.png);
+    }
+    
+    .pay .row-alipay {
+        background-image: url(../image/icon_alipay.png);
+    }
+    
+    .pay .row-disable {
+        opacity: 0.5;
+    }
+    
+    .pay .row .text {
+        display: inline-block;
+        width: auto;
+        height: 50px;
+    }
+    
+    .pay .row .text-recommend {
+        box-sizing: border-box;
+        padding-right: 28px;
+        display: inline-block;
+        width: auto;
+        height: 50px;
+        background-image: url(../image/recommend.png);
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: right center;
+        border-radius: 10px;
+    }
+    
+    .pay .row .select {
+        position: absolute;
+        top: 0;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: auto 20px;
+        background-image: url(../image/order_off.png);
+    }
+    
+    .pay .row .selected {
+        background-image: url(../image/order_on.png);
     }
     
     .highlight {
@@ -143,24 +365,72 @@
 </head>
 
 <body>
-    <section id="list" class="list">
-        <div class="address">
-            <div class="icon"></div>
-            <div class="sign">[默认]</div>
-            <div class="info">
-                <div class="top">
-                    <div class="consignee">收货人：李小潞</div>
-                    <div class="mobile">13888888888</div>
-                </div>
-                <div class="bottom">
-                    <div class="type">[家庭]</div>
-                    <div class="text">北京市海淀区</div>
-                </div>
+    <section class="address">
+        <div class="icon"></div>
+        <div class="info">
+            <div class="top">
+                <div class="consignee">收货人：李小璐</div>
+                <div class="mobile">18818881888</div>
             </div>
-            <div class="arrow"></div>
+            <div class="bottom">
+                <div class="type">【公司】</div>
+                <div class="text">北京市海淀区龙翔路甲1号</div>
+            </div>
+        </div>
+        <div class="arrow"></div>
+    </section>
+    <section class="order">
+        <div class="title">订单信息</div>
+        <div class="icon-panel">
+            <div class="icon"></div>
+            <div class="info">
+                <div class="top">佳沛绿奇异果</div>
+                <div class="bottom">￥19.9/4个</div>
+            </div>
+            <div class="right">1</div>
+        </div>
+        <div class="row">
+            <div class="text">数量：</div>
+            <div class="value">1件</div>
+        </div>
+        <div class="row">
+            <div class="text">优惠卷：
+                <div class="tag">0张可用</div>
+            </div>
+            <div class="value value-1">未使用</div>
+        </div>
+        <div class="row">
+            <div class="text">商品金额：</div>
+            <div class="value value-2">+&nbsp;￥19.9</div>
+        </div>
+        <div class="row">
+            <div class="text">运费：</div>
+            <div class="value value-2">+&nbsp;￥5.0</div>
+        </div>
+        <div class="row">
+            <div class="text">优惠金额：</div>
+            <div class="value value-2">-&nbsp;￥0.0</div>
+        </div>
+        <div class="row-1">
+            <div class="value value-2">实付款：&nbsp;<span class="color">￥24.9</span></div>
         </div>
     </section>
-    <section id="empty" class="empty"></section>
+    <section class="pay">
+        <div class="title">付款方式</div>
+        <div class="row row-balance-pay row-disable">
+            <div class="text text-recommend">余额支付</div>
+            <div class="text">（余额不足：￥0.0）</div>
+            <div class="select"></div>
+        </div>
+        <div class="row row-wxpay">
+            <div class="text text-recommend">微信支付</div>
+            <div class="select selected"></div>
+        </div>
+        <div class="row row-alipay">
+            <div class="text">支付宝</div>
+            <div class="select"></div>
+        </div>
+    </section>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
@@ -170,3 +440,4 @@ apiready = function() {
 </script>
 
 </html>
+
